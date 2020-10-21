@@ -7,11 +7,11 @@ app = Flask(__name__)
 def home_route():
     return render_template("home.html", projects=projects.setup())
 
-@app.route('/hello/')
+@app.route('/lowmaint/')
 def hello_route():
     return render_template("hello.html", projects=projects.setup())
 
-@app.route('/fruit&veggie')
+@app.route('/fruitveggie/')
 def fruit_route():
     return render_template("fruit_veggie.html", projects=projects.setup())
 
