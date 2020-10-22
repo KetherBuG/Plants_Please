@@ -85,17 +85,20 @@
 
 {% block script %}
 <script src="https://threejs.org/build/three.js"></script>
-<script src="{{ url_for('static', filename='vanta.rings.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vanta.trunk.min.js') }}"></script>
 <script>
-    VANTA.RINGS({
+    VANTA.TRUNK({
       el: "body",
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      minHeight: 200.00,
+      minHeight: 1000.00,
       minWidth: 200.00,
       scale: 1.00,
-      scaleMobile: 1.00
+      scaleMobile: 1.00,
+      color: 0x27905a,
+      spacing: 1.50,
+      chaos: 1.50
     })
   </script>
 {% endblock %}

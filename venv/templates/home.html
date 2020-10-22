@@ -6,19 +6,22 @@
 
 {% block script %}
 <script src="https://threejs.org/build/three.js"></script>
-<script src="{{ url_for('static', filename='vanta.ripple.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vanta.dots.min.js') }}"></script>
 <script>
 
-    VANTA.RIPPLE({
+    VANTA.DOTS({
       el: "body",
       mouseControls: true,
       touchControls: true,
       gyroControls: false,
-      minHeight: 200.00,
+      minHeight: 1000.00,
       minWidth: 200.00,
       scale: 1.00,
       scaleMobile: 1.00,
-      wingSpan: 40.0
+      color: 0x106fbf,
+      color2: 0x6c270,
+      size: 3.50,
+      spacing: 50.00
     })
     </script>
 {% endblock %}
