@@ -9,7 +9,7 @@ def home_route():
 
 @app.route('/lowmaint/')
 def hello_route():
-    return render_template("hello.html", projects=projects.setup())
+    return render_template("low_maint.html", projects=projects.setup())
 
 @app.route('/fruitveggie/')
 def fruit_route():
