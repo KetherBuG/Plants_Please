@@ -4,6 +4,12 @@
 <title>{{name}}| Home </title>
 {% endblock %}
 
+<!-- Project Information  -->
+{% block title %}
+<h1>Welcome</h1>
+{% endblock %}
+
+
 {% block script %}
 <script src="https://threejs.org/build/three.js"></script>
 <script src="{{ url_for('static', filename='vanta.dots.min.js') }}"></script>
