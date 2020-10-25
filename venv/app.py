@@ -4,15 +4,15 @@ from flask_wtf import FlaskForm
 from wtforms import Form, BooleanField, StringField, PasswordField
 from wtforms.validators import InputRequired,Email,Length
 from flask_sqlalchemy import SQLAlchemy
-import projects
 
+import projects
 
 db = SQLAlchemy()
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'AnimeisGOOD'
-app.config.from_object('config.Config')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 Bootstrap(app)
 
 class LoginForm(FlaskForm):
