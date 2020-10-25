@@ -32,6 +32,14 @@ def home_route():
 def hello_route():
     return render_template("low_maint.html", projects=projects.setup())
 
+@app.route('/highmaint/')
+def highmaint_route():
+    return render_template("high_maint.html", projects=projects.setup())
+
+@app.route('/sdplants/')
+def sdplant_route():
+    return render_template("SD_plants.html", projects=projects.setup())
+
 @app.route('/fruitveggie/')
 def fruit_route():
     return render_template("fruit_veggie.html", projects=projects.setup())
