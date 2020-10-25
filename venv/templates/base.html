@@ -34,6 +34,7 @@
             <a class="nav-link" href="/lowmaint/">Low Maint</a>
             <a class="nav-link" href="/fruitveggie/">FruitVeggie</a>
             <a class="nav-link" href= "/login/">Login</a>
+            <a class="nav-link" href= "/signup/">Signup</a>
         </div>
     </div>
 </nav>
@@ -82,7 +83,10 @@
     </div>
 </div>
 </body>
+{% block content %}
 
+
+{% endblock %}
 {% block script %}
 <script src="https://threejs.org/build/three.js"></script>
 <script src="{{ url_for('static', filename='vanta.dots.min.js') }}"></script>
