@@ -7,13 +7,18 @@ from flask_sqlalchemy import SQLAlchemy
 
 import projects
 
-db = SQLAlchemy()
+
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'AnimeisGOOD'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+db = SQLAlchemy(app)
 Bootstrap(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer,primary_key = True)
+    username = db.Column()
 
 class LoginForm(FlaskForm):
     username = StringField('username',validators=[InputRequired(), Length(min=4,max=15)])
