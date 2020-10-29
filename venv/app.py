@@ -55,6 +55,10 @@ def sdplant_route():
 def fruit_route():
     return render_template("fruit_veggie.html", projects=projects.setup())
 
+@app.route('/plantpics/')
+def plantpictures():
+    return render_template("test.html", projects=projects.setup())
+
 #Create the Login Page
 @app.route('/login/',methods = ['GET','POST'])
 def login():
