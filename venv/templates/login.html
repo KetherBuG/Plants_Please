@@ -13,6 +13,7 @@
 <div class="container">
 
     <form class="form-signin" method="POST" action="/login/">
+        {{ form.hidden_tag() }}
         <h2 class="form-signin-heading">Please sign in</h2>
 
         {{wtf.form_field(form.username)}}

@@ -4,10 +4,10 @@ from flask_wtf import FlaskForm
 from wtforms import Form, BooleanField, StringField, PasswordField
 from wtforms.validators import InputRequired,Email,Length
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+
 
 import projects
-
-
 
 
 app = Flask(__name__)
@@ -16,8 +16,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Bootstrap(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
-class User(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+class User(UserMixin, db.Model):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(15),unique = True)
     email = db.Column(db.String(50),unique = True)
@@ -31,10 +38,14 @@ class LoginForm(FlaskForm):
     password = PasswordField('password',validators=[InputRequired(), Length(min=8,max=80)])
     remember = BooleanField('remember me')
 
+
+
 class RegisterForm(FlaskForm):
     email = StringField('email', validators=[InputRequired(), Email(message='Invalid Email'),Length(max=50)])
     username = StringField('username',validators=[InputRequired(), Length(min=4,max=15)])
     password = PasswordField('password',validators=[InputRequired(), Length(min=8,max=80)])
+
+
 @app.route('/')
 def home_route():
     return render_template("home.html", projects=projects.setup())
@@ -64,11 +75,12 @@ def plantpictures():
 def login():
     form = LoginForm()
     #TODO Make The SQL Database work
+
     if form.validate_on_submit():
         user = User.query.filter_by(username = form.user.data).first()
         if user:
             if user.password == form.password.data:
-                return redirect(url_for('home'))
+                return redirect(url_for('home_route'))
 
         return '<h1>Invalid username or password</h1>'
 
@@ -78,11 +90,12 @@ def login():
 @app.route('/signup/',methods = ['GET','POST'])
 def signup():
     form = RegisterForm()
-
     if form.validate_on_submit():
         new_user = User(username = form.username.data, email = form.email.data, password = form.password.data)
         db.session.add(new_user)
         db.session.commit()
+        return redirect(url_for('home_route'))
+
 
     return render_template("signup.html", form = form, projects=projects.setup())
 
