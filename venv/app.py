@@ -6,7 +6,6 @@ from wtforms.validators import InputRequired,Email,Length
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
-
 import projects
 
 
@@ -77,6 +76,11 @@ def login():
     #TODO Make The SQL Database work
 
     if form.validate_on_submit():
+        exists = db.session.query(
+            db.session.query(User).filter_by(username='AndrewZhang').exists()
+        ).scalar()
+        if exists == True:
+            return "Exists"
         user = User.query.filter_by(username = form.user.data).first()
         if user:
             if user.password == form.password.data:
