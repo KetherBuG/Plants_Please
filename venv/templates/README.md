@@ -30,6 +30,7 @@ Our current web pages on the running site include:
 * Shreya Vasant
 * Andrew Zhang
 ## Updates
+* week of 11/2: 
 * week of 10/26: worked on database for login/signup, updated "Interesting Plants" and "Low/High Maintenance"
 * week of 10/19: new project idea, created website through IntelliJ, created page outlines
 ## Links
