@@ -72,16 +72,17 @@ def plantpictures():
 #Create the Login Page
 @app.route('/login/',methods = ['GET','POST'])
 def login():
+    #TODO: Make the form accept the User Value, or somehow update the form
     form = LoginForm()
     #TODO Make The SQL Database work
 
     if form.validate_on_submit():
-        exists = db.session.query(
-            db.session.query(User).filter_by(username='AndrewZhang').exists()
-        ).scalar()
-        if exists == True:
-            return "Exists"
-        user = User.query.filter_by(username = form.user.data).first()
+        #exists = db.session.query(
+            #db.session.query(User).filter_by(username='AndrewZhang').exists()
+        #).scalar()
+        #if exists == True:
+            #return "Exists"
+        user = User.query.filter_by(username = form.username.data).first()
         if user:
             if user.password == form.password.data:
                 return redirect(url_for('home_route'))
