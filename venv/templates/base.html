@@ -171,8 +171,31 @@
           box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
       }
 
+       /* Next & previous buttons */
+     .prev,
+     .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: black;
+        font-weight: bold;
+        font-size: 50px;
+        border-radius: 0 10px 10px 0;
+        user-select: none;
+        -webkit-user-select: none;
+     }
+
+/* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 10px 0 0 10px;
+    }
 
   </style>
+
 {% endblock %}
 
 </html>
