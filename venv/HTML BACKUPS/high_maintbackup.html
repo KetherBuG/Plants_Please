@@ -1,12 +1,16 @@
-{% extends "base.html" %}
-
-{% block title %}
-{% endblock %}
-
-{% block styles %}
-{% endblock %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>High Maintenance Plants</title>
+    <style>
+        h1 {text-align: center;}
+        h2 {text-align:left;}
+        img{padding-left 10%;}
+        p1 {padding-left: 5% ;}
+        p2 {padding-left: 5% ;}
+    </style>
+</head>
 <body style="background-color: #a4c0a1;">
 <h1 style="color: #ffffff;">High Maintenance Plants</h1>
 <h2 style="color: #ffffff;">1. Bonsai Tree</h2>
@@ -44,26 +48,5 @@
     <br>
     <p2  style = "color:#ffffff;"></p2>
 </div>
-{% endblock %}
-
-{% block script %}
-<script src="https://threejs.org/build/three.js"></script>
-<script src="{{ url_for('static', filename='vanta.dots.min.js') }}"></script>
-<script>
-
-    VANTA.DOTS({
-      el: "body",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 1200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x106fbf,
-      color2: 0x6c270,
-      size: 3.50,
-      spacing: 50.00
-    })
-    </script>
-{% endblock %}
+</body>
+</html>
