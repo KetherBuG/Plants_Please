@@ -45,25 +45,8 @@
     <p2  style = "color:#ffffff;"></p2>
 </div>
 {% endblock %}
-
+<div class=“background-image”><img src="../static/Flowers.jpg" width="1500" height="1000"></div>
 {% block script %}
 <script src="https://threejs.org/build/three.js"></script>
 <script src="{{ url_for('static', filename='vanta.dots.min.js') }}"></script>
-<script>
-
-    VANTA.DOTS({
-      el: "body",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 1200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x106fbf,
-      color2: 0x6c270,
-      size: 3.50,
-      spacing: 50.00
-    })
-    </script>
 {% endblock %}
