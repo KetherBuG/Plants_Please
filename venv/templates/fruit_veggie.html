@@ -4,9 +4,7 @@
 {% block title %}
 {% endblock %}
 
-{% block styles %}
 <body style="background-color:#D5F5E3;">
-{% endblock %}
 
 {% block content %}
 <h1 style="color:#2C3E50; text-align:center">Fruits and Vegetables</h1>
@@ -67,25 +65,8 @@
 {% block script %}
 <script src="https://threejs.org/build/three.js"></script>
 <script src="{{ url_for('static', filename='vanta.dots.min.js') }}"></script>
-<script>
-
-    VANTA.DOTS({
-      el: "body",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 1200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x106fbf,
-      color2: 0x6c270,
-      size: 3.50,
-      spacing: 50.00
-    })
-    </script>
 {% endblock %}
-{% extends "base.html" %}
+
 
 
 
