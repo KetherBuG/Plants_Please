@@ -53,6 +53,7 @@ def home_route():
 def hello_route():
     return render_template("low_maint.html", projects=projects.setup())
 
+
 @app.route('/highmaint/')
 def highmaint_route():
     return render_template("high_maint.html", projects=projects.setup())
