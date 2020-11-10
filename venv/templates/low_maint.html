@@ -1,11 +1,10 @@
 
 {% extends "base.html" %}
-
 {% block title %}
 {% endblock %}
 
 {% block styles %}
-<body style="background-color:#D5F5E3;">
+<body style="background-color:#CEF6D8;">
 {% endblock %}
 
 {% block content %}
@@ -67,31 +66,4 @@
 {% block script %}
 <script src="https://threejs.org/build/three.js"></script>
 <script src="{{ url_for('static', filename='vanta.dots.min.js') }}"></script>
-<script>
-
-    VANTA.DOTS({
-      el: "body",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 1200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x106fbf,
-      color2: 0x6c270,
-      size: 3.50,
-      spacing: 50.00
-    })
-    </script>
 {% endblock %}
-
-<!--
-{% block body %}
-    {% for data in datalist: %}
-        {% set title = data["chinese evergreen", "snake plant"] %}
-        {% set description = data["writing", "more writing"] %}
-        {% set links = data["link.com", "morelinks.com"] %}
-
-        <h1>{{title[0]}} <span style='color:orangered;'></span></h1>
- -->
