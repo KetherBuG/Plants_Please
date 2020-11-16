@@ -86,7 +86,7 @@ def login():
         user = User.query.filter_by(username = form.username.data).first()
         if user:
             if user.password == form.password.data:
-                return redirect(url_for('home_route'))
+                return redirect(url_for('showboard'))
 
         return '<h1>Invalid username or password</h1>'
 
@@ -104,6 +104,10 @@ def signup():
 
 
     return render_template("signup.html", form = form, projects=projects.setup())
+
+@app.route('/dashboard/')
+def showboard():
+    return render_template("DashBoard.html", projects=projects.setup())
 
 
 
